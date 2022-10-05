@@ -1,0 +1,75 @@
+$background: #3a3215;
+$primary-yellow: #e4bb38;
+$primary-grey: #b8b8b8;
+$white: #ffffff;
+$secondary-gray: #b7b7b7;
+$black: #000000;
+
+.schedule__wrapper {
+  background-color: #1f1d1d;
+  min-height: 80vh;
+  .head__wrapper {
+    .head__text {
+      text-transform: capitalize;
+      text-align: center;
+      font-size: 48px;
+      word-spacing: 0;
+      line-height: 55px;
+      color: $primary-yellow;
+      font-weight: 800;
+    }
+  }
+  .description__head {
+    color: $primary-grey;
+    font-size: 30px;
+    word-spacing: 0;
+    line-height: 30px;
+    margin: 10px 0;
+    font-weight: 600;
+  }
+  .game__desc {
+    color: $primary-grey;
+    font-size: 16px;
+    word-spacing: 0;
+    line-height: 25px;
+    margin: 10px 0;
+  }
+  .vs__text {
+    display: grid;
+    color: $white;
+    font-weight: 600;
+    font-size: 30px;
+    word-spacing: 0;
+    line-height: 30px;
+    text-align: center;
+    margin-top: 50px;
+  }
+  .team__name {
+    color: $white;
+    font-size: 18px;
+    font-weight: 400;
+    .team__profile {
+      font-weight: 600;
+      color: $primary-grey;
+      text-transform: capitalize;
+    }
+  }
+  .img-fluid {
+    margin-top: 50px;
+  }
+  @media screen and (max-width: 768px) {
+    .head__text {
+      font-size: 32px !important;
+      line-height: 40px !important;
+    }
+    .img-fluid {
+      width: 200px;
+      height: 200px;
+      display: flex;
+      margin: auto;
+    }
+    .vs__text {
+      margin-bottom: 50px;
+    }
+  }
+}

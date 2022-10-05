@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+
+$background: #3a3215;
+$primary-yellow: #e4bb38;
+$primary-grey: #b8b8b8;
+$white: #ffffff;
+$secondary-gray: #b7b7b7;
+$black: #000000;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+body {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.5;
+  font-family: 'Lato', sans-serif;
+}
+
+/* scroll bar */
+::selection {
+  background-color: $primary-yellow;
+  color: white;
+}
+::-webkit-scrollbar {
+  width: 10px;
+  border-radius: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: $background;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: $primary-yellow;
+  border-radius: 10px;
+}

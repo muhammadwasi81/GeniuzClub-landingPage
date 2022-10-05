@@ -1,0 +1,20 @@
+.studio__wrapper {
+  background-color: #000000;
+  min-height: 70vh;
+  .card {
+    background: transparent;
+    color: #ffffff;
+    border-radius: 6px;
+    height: 400px;
+    .card-body {
+      background: #211f1fbd;
+      position: absolute;
+      top: 150px;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .card-body {
+      top: 200px !important;
+    }
+  }
+}

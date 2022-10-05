@@ -1,0 +1,23 @@
+$background: #3a3215;
+$primary-yellow: #e4bb38;
+$primary-grey: #b8b8b8;
+$white: #ffffff;
+$secondary-gray: #b7b7b7;
+$black: #000000;
+
+.footer__wrapper {
+  background-color: #000000;
+  min-height: 30vh;
+  text-transform: uppercase;
+  color: $primary-yellow;
+  .footer__text {
+    margin-top: 140px;
+    font-size: 16px;
+    text-align: center;
+  }
+  @media screen and (max-width: 768px) {
+    .footer__text {
+      margin-top: 0;
+    }
+  }
+}

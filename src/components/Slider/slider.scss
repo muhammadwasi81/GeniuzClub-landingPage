@@ -1,0 +1,10 @@
+.carousel__wrapper {
+  .carousel-inner {
+    height: 100vh !important;
+  }
+  @media screen and (max-width: 768px) {
+    .carousel-inner {
+      height: auto !important;
+    }
+  }
+}

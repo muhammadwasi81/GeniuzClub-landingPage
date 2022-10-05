@@ -1,0 +1,47 @@
+$background: #3a3215;
+$primary-yellow: #e4bb38;
+$primary-grey: #b8b8b8;
+$white: #ffffff;
+$secondary-gray: #b7b7b7;
+$black: #000000;
+
+.nav__wrapper {
+  background-color: $black;
+  min-height: 100px;
+  .nav-link {
+    font-size: 18px;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: $primary-grey;
+    margin-left: 25px;
+    margin-right: 25px;
+    text-decoration: none solid rgba(0, 0, 0, 0.87);
+    transition: 0.2s ease;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    cursor: pointer;
+    &:hover {
+      background-color: rgb(58, 50, 21);
+      color: $primary-yellow !important;
+      transition: 0.2s ease;
+    }
+  }
+  .active {
+    color: $primary-yellow !important;
+    text-decoration: underline solid $primary-yellow 4px;
+    text-underline-offset: 47px !important;
+  }
+
+  @media screen and (max-width: 768px) {
+    .nav-link {
+      margin-left: 0;
+      margin-right: 0;
+      font-size: 16px;
+    }
+    .active {
+      text-decoration: underline solid $primary-yellow 2px;
+      text-underline-offset: 10px !important;
+    }
+  }
+}
