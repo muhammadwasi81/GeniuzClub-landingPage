@@ -1,15 +1,16 @@
-import './footer.scss'
+import './footer.scss';
+import Logo from '../../assets/img/logo.png';
 
 const Footer = () => {
   return (
     <footer className="container-fluid footer__wrapper" id="Contact">
       <div className="row">
-        <div className="col-sm-12 col-lg-3">
+        <div className="col-sm-12 col-lg-3 footer__logo__wrapper">
           <img
-            src="https://starpng.com/public/uploads/preview/airbnb-logo-airbnb-logo-white-on-black-png-image-transparent-101576586899a2xgsawyyh.png"
+            src={Logo}
             alt="footer logo"
             loading="lazy"
-            className="img-fluid w-75"
+            className="img-fluid footer__logo"
           />
         </div>
         <div className="col-sm-12 col-lg-6 col-md-6">
@@ -23,7 +24,7 @@ const Footer = () => {
         <div className="col-sm-12 col-lg-3"></div>
       </div>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

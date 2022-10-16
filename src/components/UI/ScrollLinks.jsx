@@ -1,6 +1,6 @@
-import { Link } from 'react-scroll'
-import '../Nav/nav.scss'
-import PropTypes from 'prop-types'
+import { Link } from 'react-scroll';
+import '../Nav/nav.scss';
+import PropTypes from 'prop-types';
 
 const ScrollLink = ({ to, children }) => {
   return (
@@ -12,15 +12,16 @@ const ScrollLink = ({ to, children }) => {
         smooth={true}
         duration={100}
         offset={-150}
-        activeClass="active">
+        activeClass="active"
+      >
         {children}
       </Link>
     </>
-  )
-}
+  );
+};
 
 ScrollLink.propTypes = {
   to: PropTypes.string.isRequired,
-  children: PropTypes.string.isRequired
-}
-export default ScrollLink
+  children: PropTypes.node.isRequired,
+};
+export default ScrollLink;

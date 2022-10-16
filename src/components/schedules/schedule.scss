@@ -7,8 +7,29 @@ $black: #000000;
 
 .schedule__wrapper {
   background-color: #1f1d1d;
-  min-height: 80vh;
+  min-height: 90vh;
+  height: 100%;
   .head__wrapper {
+    &::before {
+      content: '';
+      background: url('../../assets/img/geno.png') no-repeat;
+      background-size: contain;
+      position: absolute;
+      width: 100px;
+      bottom: 0;
+      height: 65px;
+      left: 36%;
+    }
+    &:after {
+      content: '';
+      background: url('../../assets/img/geno-right.png') no-repeat;
+      background-size: contain;
+      position: absolute;
+      width: 100px;
+      height: 65px;
+      right: 30%;
+      bottom: 0;
+    }
     .head__text {
       text-transform: capitalize;
       text-align: center;
@@ -27,49 +48,33 @@ $black: #000000;
     margin: 10px 0;
     font-weight: 600;
   }
-  .game__desc {
-    color: $primary-grey;
-    font-size: 16px;
-    word-spacing: 0;
-    line-height: 25px;
-    margin: 10px 0;
-  }
-  .vs__text {
-    display: grid;
-    color: $white;
-    font-weight: 600;
-    font-size: 30px;
-    word-spacing: 0;
-    line-height: 30px;
-    text-align: center;
-    margin-top: 50px;
-  }
-  .team__name {
-    color: $white;
-    font-size: 18px;
-    font-weight: 400;
-    .team__profile {
-      font-weight: 600;
-      color: $primary-grey;
-      text-transform: capitalize;
+  .row {
+    display: flex;
+    .img-fluid {
+      width: 200px;
+      height: auto;
     }
   }
-  .img-fluid {
-    margin-top: 50px;
-  }
+
   @media screen and (max-width: 768px) {
+    min-height: 50vh;
     .head__text {
       font-size: 32px !important;
       line-height: 40px !important;
     }
-    .img-fluid {
-      width: 200px;
-      height: 200px;
-      display: flex;
-      margin: auto;
-    }
-    .vs__text {
-      margin-bottom: 50px;
+    .head__wrapper {
+      &::before {
+        left: 18%;
+        bottom: auto !important;
+      }
+      &:after {
+        right: 0;
+        top: 15px;
+      }
+      .img-fluid {
+        width: 100px;
+        height: auto;
+      }
     }
   }
 }

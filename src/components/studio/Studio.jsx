@@ -1,47 +1,87 @@
-import CustomCard from '../UI/CustomCard'
-import './studio.scss'
+import CustomCard from '../UI/CustomCard';
+import './studio.scss';
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
+import CardOne from '../../assets/img/card1.png';
+import CardTwo from '../../assets/img/card2.png';
+import CardThree from '../../assets/img/card3.png';
+import CardFour from '../../assets/img/card4.png';
+
+const responsive = {
+  desktop: {
+    breakpoint: { max: 3000, min: 1024 },
+    items: 4,
+    partialVisibilityGutter: 40,
+  },
+  tablet: {
+    breakpoint: { max: 1024, min: 464 },
+    items: 2,
+    partialVisibilityGutter: 30,
+  },
+  mobile: {
+    breakpoint: { max: 464, min: 0 },
+    items: 1,
+  },
+};
 
 const Studio = () => {
   return (
     <section className="studio__wrapper" id="ourstudio">
-      <div className="container">
-        <div className="row" data-aos="fade-up" data-aos-duration="3000">
-          <div className="col-sm-12 col-md-6 col-lg-3 mt-lg-5 pt-lg-5 mt-3 pt-3">
-            <CustomCard
-              src="https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
-              alt="play games"
-              subhead="Having fun playing together in esport"
-              children="lorem ispum dolor smit amet lorem ispum dolor smit amet"
-            />
-          </div>
-          <div className="col-sm-12 col-md-6 col-lg-3 mt-lg-5 pt-lg-5 mt-3 pt-3">
-            <CustomCard
-              src="https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
-              alt="play games"
-              subhead="Having fun playing together in esport"
-              children="lorem ispum dolor smit amet lorem ispum dolor smit amet"
-            />
-          </div>
-          <div className="col-sm-12 col-md-6 col-lg-3 mt-lg-5 pt-lg-5 mt-3 pt-3">
-            <CustomCard
-              src="https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
-              alt="play games"
-              subhead="Having fun playing together in esport"
-              children="lorem ispum dolor smit amet lorem ispum dolor smit amet"
-            />
-          </div>
-          <div className="col-sm-12 col-md-6 col-lg-3 mt-lg-5 pt-lg-5 mt-3 pt-3">
-            <CustomCard
-              src="https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
-              alt="play games"
-              subhead="Having fun playing together in esport"
-              children="lorem ispum dolor smit amet lorem ispum dolor smit amet"
-            />
-          </div>
+      <div className="container pt-5 text-white">
+        <div
+          className="head__wrapper"
+          data-aos="fade-right"
+          data-aos-duration="3000"
+        >
+          <h1 className="nft__head">NFT PERSONAGGI STORIC!</h1>
+        </div>
+        <div data-aos="fade-up" data-aos-duration="3000">
+          <Carousel
+            responsive={responsive}
+            partialVisible={true}
+            draggable={false}
+            infinite={true}
+            autoPlaySpeed={1000}
+            keyBoardControl={true}
+            removeArrowOnDeviceType={['tablet', 'mobile']}
+          >
+            <div className="row d-flex justify-content-around pt-5 mx-1">
+              <CustomCard
+                src={CardOne}
+                alt="old-man"
+                subhead="together in esport"
+                children="Lorem ispum dolor smit emit"
+              />
+            </div>
+            <div className="row d-flex justify-content-around pt-5 mx-1">
+              <CustomCard
+                src={CardTwo}
+                alt="old-man"
+                subhead="together in esport"
+                children="Lorem ispum dolor smit emit"
+              />
+            </div>
+            <div className="row d-flex justify-content-around pt-5 mx-1">
+              <CustomCard
+                src={CardThree}
+                alt="old-man"
+                subhead="together in esport"
+                children="Lorem ispum dolor smit emit"
+              />
+            </div>
+            <div className="row d-flex justify-content-around pt-5 mx-1">
+              <CustomCard
+                src={CardFour}
+                alt="old-man"
+                subhead="together in esport"
+                children="Lorem ispum dolor smit emit"
+              />
+            </div>
+          </Carousel>
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Studio
+export default Studio;

@@ -1,10 +1,32 @@
-.carousel__wrapper {
-  .carousel-inner {
-    height: 100vh !important;
+.section__wrapper {
+  background-image: url('../../assets/img/slider1.png');
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 100vh;
+  image-rendering: pixelated;
+  padding: 120px 0;
+  .slider__heading {
+    width: 400px;
+    font-size: 56px;
+    font-weight: bold;
+    line-height: 1.2;
   }
-  @media screen and (max-width: 768px) {
-    .carousel-inner {
-      height: auto !important;
+}
+
+@media screen and (max-width: 768px) {
+  .section__wrapper {
+    padding: 150px 0;
+    height: 60vh;
+
+    .head__row {
+      margin-top: 0;
+      width: 100%;
+    }
+    .slider__heading {
+      width: 100%;
+      font-size: 40px !important;
     }
   }
 }

@@ -1,20 +1,18 @@
+$primary-yellow: #e4bb38;
+
 .studio__wrapper {
   background-color: #000000;
   min-height: 70vh;
   .card {
-    background: transparent;
-    color: #ffffff;
-    border-radius: 6px;
-    height: 400px;
-    .card-body {
-      background: #211f1fbd;
-      position: absolute;
-      top: 150px;
-    }
+    background-color: transparent;
   }
-  @media screen and (max-width: 768px) {
-    .card-body {
-      top: 200px !important;
+  .head__wrapper {
+    text-align: center;
+    color: $primary-yellow;
+    text-transform: uppercase;
+    .nft__head {
+      font-weight: 800;
+      font-size: 40px;
     }
   }
 }

@@ -4,10 +4,11 @@ $primary-grey: #b8b8b8;
 $white: #ffffff;
 $secondary-gray: #b7b7b7;
 $black: #000000;
+$nav-color: #212529;
 
 .nav__wrapper {
-  background-color: $black;
-  min-height: 100px;
+  background-color: $nav-color;
+  min-height: 90px;
   .nav-link {
     font-size: 18px;
     margin-bottom: 10px;
@@ -30,10 +31,20 @@ $black: #000000;
   .active {
     color: $primary-yellow !important;
     text-decoration: underline solid $primary-yellow 4px;
-    text-underline-offset: 47px !important;
+    text-underline-offset: 55px !important;
+  }
+  .logo__img {
+    width: 125px;
+    height: 90px;
+    margin-left: 25px;
+    margin-right: 25px;
   }
 
   @media screen and (max-width: 768px) {
+    background-color: transparent !important;
+    .navbar-dark {
+      background-color: #ffffff !important;
+    }
     .nav-link {
       margin-left: 0;
       margin-right: 0;
@@ -42,6 +53,12 @@ $black: #000000;
     .active {
       text-decoration: underline solid $primary-yellow 2px;
       text-underline-offset: 10px !important;
+    }
+    .logo__img {
+      width: 100px;
+      height: 70px;
+      margin-left: 0;
+      margin-right: 0;
     }
   }
 }
