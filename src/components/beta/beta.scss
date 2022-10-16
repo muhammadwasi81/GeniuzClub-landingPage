@@ -21,6 +21,14 @@ $black: #000000;
       word-spacing: 0;
     }
   }
+  .form-control {
+    width: 250px;
+    margin: auto;
+    border-radius: 30px;
+    border: 1px solid yellow;
+    outline: none;
+    padding: 10px 20px;
+  }
   .btn__version {
     color: $white;
     padding: 8px;
