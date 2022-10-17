@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import Recaptcha from '../UI/Recaptcha';
+import Recaptcha from '../Recaptcha/Recaptcha';
 import './beta.scss';
 
 const BetaVersion = () => {

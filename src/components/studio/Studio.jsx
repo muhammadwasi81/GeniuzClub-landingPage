@@ -8,6 +8,10 @@ import CardThree from '../../assets/img/card3.png';
 import CardFour from '../../assets/img/card4.png';
 
 const responsive = {
+  superLargeDesktop: {
+    breakpoint: { max: 4000, min: 3000 },
+    items: 5,
+  },
   desktop: {
     breakpoint: { max: 3000, min: 1024 },
     items: 4,
@@ -41,9 +45,16 @@ const Studio = () => {
             partialVisible={true}
             draggable={false}
             infinite={true}
+            autoPlay={responsive.desktop !== 'mobile' ? true : false}
             autoPlaySpeed={1000}
             keyBoardControl={true}
-            removeArrowOnDeviceType={['tablet', 'mobile']}
+            removeArrowOnDeviceType={['tablet']}
+            swipeable={false}
+            ssr={true}
+            transitionDuration={500}
+            containerClass="carousel-container"
+            stopOnHover={true}
+            itemClass="carousel-item-padding-40-px"
           >
             <div className="row d-flex justify-content-around pt-5 mx-1">
               <CustomCard

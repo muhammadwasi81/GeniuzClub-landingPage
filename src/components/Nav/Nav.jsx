@@ -5,10 +5,19 @@ import i18n from '../../utils/i18n';
 import { useTranslation } from 'react-i18next';
 import ScrollLink from '../UI/ScrollLinks';
 import Logo from '../../assets/img/logo.png';
+import { useEffect, useState } from 'react';
 
 const Nav = () => {
+  const [matches, setMatches] = useState(
+    window.matchMedia('(min-width: 768px)').matches
+  );
   const { t } = useTranslation();
   const [language, setLanguage] = useLocalStorageHook('language', 'en');
+  useEffect(() => {
+    window
+      .matchMedia('(min-width: 768px)')
+      .addEventListener('change', (e) => setMatches(e.matches));
+  }, []);
 
   const handleChange = () => {
     if (language === 'en') {
@@ -34,6 +43,9 @@ const Nav = () => {
             logo__img"
           />
         </Link>
+        {!matches && (
+          <button className="btn btn-warning join__btn">join</button>
+        )}
         <button
           className="navbar-toggler"
           type="button"
@@ -43,7 +55,11 @@ const Nav = () => {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span className="navbar-toggler-icon"></span>
+          {/* <span className="navbar-toggler-icon"></span>
+           */}
+          <span></span>
+          <span></span>
+          <span></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
@@ -68,13 +84,23 @@ const Nav = () => {
             <li className="nav-link">
               <select
                 className="form-select"
-                aria-label="Default select example"
+                aria-label="Select language"
                 onChange={(e) => handleChange(e.target.value)}
               >
-                <option defaultValue>Select Language</option>
+                <option defaultValue>Language</option>
                 <option value="en">{t('English')}</option>
                 <option value="it">{t('italian')}</option>
               </select>
+            </li>
+            <li className="nav-item">
+              {matches && (
+                <button
+                  className="btn btn-warning
+              join__btn"
+                >
+                  join
+                </button>
+              )}
             </li>
           </ul>
         </div>

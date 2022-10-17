@@ -15,4 +15,35 @@ $primary-yellow: #e4bb38;
       font-size: 40px;
     }
   }
+  .react-multiple-carousel__arrow--right {
+    background-color: transparent;
+    color: #ffffff !important;
+    font-weight: 800;
+    right: 0;
+    &:hover {
+      background-color: transparent;
+    }
+  }
+  .react-multiple-carousel__arrow--left {
+    background-color: transparent;
+    color: #ffffff !important;
+    font-weight: 800;
+    left: 0;
+    &:hover {
+      background-color: transparent;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .studio__wrapper {
+    .card {
+      width: 250px;
+    }
+    .head__wrapper {
+      .nft__head {
+        font-size: 32px;
+      }
+    }
+  }
 }

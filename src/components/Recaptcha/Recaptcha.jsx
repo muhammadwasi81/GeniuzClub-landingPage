@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 
-const SITE_KEY = '6Lev4X8iAAAAAF9UgTDVOib5O6QkQN7uuvD3u53z';
+// const SITE_KEY = '6Lev4X8iAAAAAF9UgTDVOib5O6QkQN7uuvD3u53z';
 
 function Recaptcha() {
   const [loading, setLoading] = useState(false);
