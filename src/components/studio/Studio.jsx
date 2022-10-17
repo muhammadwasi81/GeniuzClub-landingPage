@@ -1,11 +1,11 @@
-import CustomCard from '../UI/CustomCard';
-import './studio.scss';
-import Carousel from 'react-multi-carousel';
-import 'react-multi-carousel/lib/styles.css';
-import CardOne from '../../assets/img/card1.png';
-import CardTwo from '../../assets/img/card2.png';
-import CardThree from '../../assets/img/card3.png';
-import CardFour from '../../assets/img/card4.png';
+import CustomCard from '../UI/CustomCard'
+import './studio.scss'
+import Carousel from 'react-multi-carousel'
+import 'react-multi-carousel/lib/styles.css'
+import CardOne from '../../assets/img/card1.png'
+import CardTwo from '../../assets/img/card2.png'
+import CardThree from '../../assets/img/card3.png'
+import CardFour from '../../assets/img/card4.png'
 
 const responsive = {
   superLargeDesktop: {
@@ -26,7 +26,7 @@ const responsive = {
     breakpoint: { max: 464, min: 0 },
     items: 1,
   },
-};
+}
 
 const Studio = () => {
   return (
@@ -92,7 +92,7 @@ const Studio = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Studio;
+export default Studio

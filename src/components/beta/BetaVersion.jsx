@@ -1,9 +1,9 @@
-import { useTranslation } from 'react-i18next';
-import Recaptcha from '../Recaptcha/Recaptcha';
-import './beta.scss';
+import { useTranslation } from 'react-i18next'
+import Recaptcha from '../Recaptcha/Recaptcha'
+import './beta.scss'
 
 const BetaVersion = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation()
 
   return (
     <section className="beta__wrapper" id="Faq">
@@ -40,7 +40,7 @@ const BetaVersion = () => {
         </form> */}
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default BetaVersion;
+export default BetaVersion

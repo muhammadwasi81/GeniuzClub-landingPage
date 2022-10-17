@@ -1,11 +1,11 @@
-import { useTranslation } from 'react-i18next';
-import './game.scss';
-import iphoneImg from '../../assets/img/mobile.png';
-import Geno from '../../assets/img/geno.png';
-import GenoRight from '../../assets/img/geno-right.png';
+import { useTranslation } from 'react-i18next'
+import './game.scss'
+import iphoneImg from '../../assets/img/mobile.png'
+import Geno from '../../assets/img/geno.png'
+import GenoRight from '../../assets/img/geno-right.png'
 
 const GameRules = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation()
   return (
     <section className="container-fluid game__wrapper" id="gamerules">
       <div className="geno__img">
@@ -58,7 +58,7 @@ const GameRules = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default GameRules;
+export default GameRules

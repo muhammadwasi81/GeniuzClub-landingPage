@@ -1,33 +1,33 @@
-import { Link } from 'react-scroll';
-import './nav.scss';
-import useLocalStorageHook from '../../utils/hooks/use-localstorage.js';
-import i18n from '../../utils/i18n';
-import { useTranslation } from 'react-i18next';
-import ScrollLink from '../UI/ScrollLinks';
-import Logo from '../../assets/img/logo.png';
-import { useEffect, useState } from 'react';
+import { Link } from 'react-scroll'
+import './nav.scss'
+import useLocalStorageHook from '../../utils/hooks/use-localstorage.js'
+import i18n from '../../utils/i18n'
+import { useTranslation } from 'react-i18next'
+import ScrollLink from '../UI/ScrollLinks'
+import Logo from '../../assets/img/logo.png'
+import { useEffect, useState } from 'react'
 
 const Nav = () => {
   const [matches, setMatches] = useState(
     window.matchMedia('(min-width: 768px)').matches
-  );
-  const { t } = useTranslation();
-  const [language, setLanguage] = useLocalStorageHook('language', 'en');
+  )
+  const { t } = useTranslation()
+  const [language, setLanguage] = useLocalStorageHook('language', 'en')
   useEffect(() => {
     window
       .matchMedia('(min-width: 768px)')
-      .addEventListener('change', (e) => setMatches(e.matches));
-  }, []);
+      .addEventListener('change', (e) => setMatches(e.matches))
+  }, [])
 
   const handleChange = () => {
     if (language === 'en') {
-      i18n.changeLanguage('it');
-      setLanguage('it');
+      i18n.changeLanguage('it')
+      setLanguage('it')
     } else if (language === 'it') {
-      i18n.changeLanguage('en');
-      setLanguage('en');
+      i18n.changeLanguage('en')
+      setLanguage('en')
     }
-  };
+  }
   return (
     <nav
       className="navbar navbar-expand-lg navbar-dark
@@ -106,7 +106,7 @@ const Nav = () => {
         </div>
       </div>
     </nav>
-  );
-};
+  )
+}
 
-export default Nav;
+export default Nav

@@ -1,39 +1,39 @@
-import { useCallback, useEffect, useState } from 'react';
-import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
+import { useCallback, useEffect, useState } from 'react'
+import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'
 
 // const SITE_KEY = '6Lev4X8iAAAAAF9UgTDVOib5O6QkQN7uuvD3u53z';
 
 function Recaptcha() {
-  const [loading, setLoading] = useState(false);
-  const { executeRecaptcha } = useGoogleReCaptcha();
-  const [token, setToken] = useState('');
-  const [actionToChange, setActionToChange] = useState('');
+  const [loading, setLoading] = useState(false)
+  const { executeRecaptcha } = useGoogleReCaptcha()
+  const [token, setToken] = useState('')
+  const [actionToChange, setActionToChange] = useState('')
 
   const registerUser = useCallback(async () => {
     if (!executeRecaptcha) {
-      return;
+      return
     }
-    console.log('token', token);
-    const result = await executeRecaptcha('register');
-    setToken(result);
-    setLoading(true);
-    setActionToChange('');
-  }, [executeRecaptcha]);
+    console.log('token', token)
+    const result = await executeRecaptcha('register')
+    setToken(result)
+    setLoading(true)
+    setActionToChange('')
+  }, [executeRecaptcha])
 
   const handleTextChange = useCallback((event) => {
-    setActionToChange(event.target.value);
-  }, []);
+    setActionToChange(event.target.value)
+  }, [])
 
   useEffect(() => {
     if (!executeRecaptcha) {
-      return;
+      return
     }
     const handleReCaptchaVerify = async () => {
-      const token = await executeRecaptcha('register');
-      setToken(token);
-    };
-    handleReCaptchaVerify();
-  }, [executeRecaptcha]);
+      const token = await executeRecaptcha('register')
+      setToken(token)
+    }
+    handleReCaptchaVerify()
+  }, [executeRecaptcha])
 
   return (
     <div className="d-flex justify-content-center flex-column">
@@ -54,7 +54,7 @@ function Recaptcha() {
         Submit
       </button>
     </div>
-  );
+  )
 }
 
-export default Recaptcha;
+export default Recaptcha

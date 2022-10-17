@@ -1,5 +1,5 @@
-import './footer.scss';
-import Logo from '../../assets/img/logo.png';
+import './footer.scss'
+import Logo from '../../assets/img/logo.png'
 
 const Footer = () => {
   return (
@@ -24,7 +24,7 @@ const Footer = () => {
         <div className="col-sm-12 col-lg-3"></div>
       </div>
     </footer>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer

@@ -1,5 +1,5 @@
-import PropTypes from 'prop-types';
-import '../studio/studio.scss';
+import PropTypes from 'prop-types'
+import '../studio/studio.scss'
 
 const CustomCard = ({ src, alt, subhead, children }) => {
   return (
@@ -10,13 +10,13 @@ const CustomCard = ({ src, alt, subhead, children }) => {
         <p className="card-text">{children}</p>
       </div>
     </div>
-  );
-};
+  )
+}
 
 CustomCard.propTypes = {
   src: PropTypes.string.isRequired,
   subhead: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
-};
+}
 
-export default CustomCard;
+export default CustomCard

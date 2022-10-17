@@ -1,9 +1,9 @@
-import { useTranslation } from 'react-i18next';
-import './schedule.scss';
-import UserImg from '../../assets/img/user.png';
+import { useTranslation } from 'react-i18next'
+import './schedule.scss'
+import UserImg from '../../assets/img/user.png'
 
 const GameSchedule = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation()
   return (
     <section className="schedule__wrapper" id="betaGame">
       <div className="container">
@@ -31,7 +31,7 @@ const GameSchedule = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default GameSchedule;
+export default GameSchedule
