@@ -16,6 +16,9 @@
 
 @media screen and (max-width: 768px) {
   .section__wrapper {
+    height: auto;
+  }
+  .section__wrapper {
     padding: 150px 0;
     .head__row {
       margin-top: 0;
