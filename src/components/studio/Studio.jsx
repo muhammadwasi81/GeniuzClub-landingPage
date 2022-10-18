@@ -46,7 +46,7 @@ const Studio = () => {
             draggable={false}
             infinite={true}
             autoPlay={responsive.desktop !== 'mobile' ? true : false}
-            autoPlaySpeed={1000}
+            autoPlaySpeed={4000}
             keyBoardControl={true}
             removeArrowOnDeviceType={['tablet']}
             swipeable={false}

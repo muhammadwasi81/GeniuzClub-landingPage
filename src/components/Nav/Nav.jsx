@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import { Link } from 'react-scroll'
 import './nav.scss'
 import useLocalStorageHook from '../../utils/hooks/use-localstorage.js'
@@ -5,9 +6,10 @@ import i18n from '../../utils/i18n'
 import { useTranslation } from 'react-i18next'
 import ScrollLink from '../UI/ScrollLinks'
 import Logo from '../../assets/img/logo.png'
-import { useEffect, useState } from 'react'
+import Hamburger from 'hamburger-react'
 
 const Nav = () => {
+  const [isOpen, setOpen] = useState(false)
   const [matches, setMatches] = useState(
     window.matchMedia('(min-width: 768px)').matches
   )
@@ -44,7 +46,9 @@ const Nav = () => {
           />
         </Link>
         {!matches && (
-          <button className="btn btn-warning join__btn">join</button>
+          <ScrollLink to="Faq">
+            <button className="btn btn-warning join__btn">join</button>
+          </ScrollLink>
         )}
         <button
           className="navbar-toggler"
@@ -55,11 +59,7 @@ const Nav = () => {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          {/* <span className="navbar-toggler-icon"></span>
-           */}
-          <span></span>
-          <span></span>
-          <span></span>
+          <Hamburger toggled={isOpen} toggle={setOpen} distance="lg" />
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
@@ -93,14 +93,16 @@ const Nav = () => {
               </select>
             </li>
             <li className="nav-item">
-              {matches && (
-                <button
-                  className="btn btn-warning
-              join__btn"
-                >
-                  join
-                </button>
-              )}
+              <ScrollLink to="Faq">
+                {matches && (
+                  <div
+                    className="btn btn-warning
+                    join__btn"
+                  >
+                    join
+                  </div>
+                )}
+              </ScrollLink>
             </li>
           </ul>
         </div>
