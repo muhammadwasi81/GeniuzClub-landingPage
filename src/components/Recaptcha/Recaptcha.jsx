@@ -1,6 +1,7 @@
 import axios from 'axios'
 import { useCallback, useEffect, useState } from 'react'
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'
+import $ from 'jquery'
 
 // const SITE_KEY = '6Lev4X8iAAAAAF9UgTDVOib5O6QkQN7uuvD3u53z';
 
@@ -36,53 +37,61 @@ function Recaptcha() {
     handleReCaptchaVerify()
   }, [executeRecaptcha])
 
-  const submitHandler = async (e) => {
-    console.log('triggered')
-    e.preventDefault()
-    try {
-      const { data } = await axios.post(
-        `https://api.geniuz.club/landingpage/marketing/WhiteList`,
-
-        {
-          Headers: {
-            'Content-Type': 'application/json',
-            recaptchaTokenBypass: token,
-            // 'Access-Control-Allow-Origin': 'http://localhost:3000',
-          },
-          email,
-        }
-      )
-      console.log(data, 'data in api')
-      setEmail('')
-    } catch (error) {
-      // throw new Error('Something went wrong', { cause: error })
-      console.log(error.message)
-    }
+  function sendReq() {
+    window.grecaptcha.ready(() => {
+      window.grecaptcha
+        .execute('6LfkUIYiAAAAAI-6GH-AZrG-wOBXIIEiZT5TcTFn', {
+          action: 'homepage',
+        })
+        .then((token) => {
+          callApi(token)
+        })
+    })
   }
 
+  function callApi(recaptchaToken) {
+    let email = document.getElementById('f-email').value
+    let json = {
+      email: email,
+    }
+
+    $.ajax({
+      type: 'POST',
+      url: 'https://api.geniuz.club/landingpage/marketing/WhiteList',
+      crossDomain: true,
+      data: JSON.stringify(json),
+      contentType: 'application/json',
+      dataType: 'json',
+      beforeSend: function (xhr) {
+        xhr.setRequestHeader('recaptchaToken', recaptchaToken)
+        xhr.setRequestHeader('Api-Version', '1.0')
+      },
+      success: function (data) {
+        alert('Request done!')
+      },
+      error: function (xhr, status, error) {
+        alert('Error!')
+      },
+    })
+  }
   return (
     <>
-      <form
-        onSubmit={submitHandler}
-        className="d-flex justify-content-center flex-column"
-      >
+      <div className="d-flex justify-content-center flex-column">
         <input
+          id="f-email"
           type="email"
           name="email"
           placeholder="Enter your email"
           className="form-control"
-          onChange={(e) => setEmail(e.target.value)}
-          value={email}
         />
         <button
+          onClick={sendReq}
           style={{ margin: 'auto' }}
-          type="submit"
-          onClick={registerUser}
           className="btn btn-warning my-4 w-25"
         >
-          Submit
+          Send
         </button>
-      </form>
+      </div>
     </>
   )
 }
