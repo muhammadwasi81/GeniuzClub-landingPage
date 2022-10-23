@@ -1,3 +1,4 @@
+import axios from 'axios'
 import { useCallback, useEffect, useState } from 'react'
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'
 
@@ -7,7 +8,7 @@ function Recaptcha() {
   const [loading, setLoading] = useState(false)
   const { executeRecaptcha } = useGoogleReCaptcha()
   const [token, setToken] = useState('')
-  const [actionToChange, setActionToChange] = useState('')
+  const [email, setEmail] = useState('')
 
   const registerUser = useCallback(async () => {
     if (!executeRecaptcha) {
@@ -17,11 +18,11 @@ function Recaptcha() {
     const result = await executeRecaptcha('register')
     setToken(result)
     setLoading(true)
-    setActionToChange('')
+    setEmail('')
   }, [executeRecaptcha])
 
   const handleTextChange = useCallback((event) => {
-    setActionToChange(event.target.value)
+    setEmail(event.target.value)
   }, [])
 
   useEffect(() => {
@@ -35,25 +36,54 @@ function Recaptcha() {
     handleReCaptchaVerify()
   }, [executeRecaptcha])
 
+  const submitHandler = async (e) => {
+    console.log('triggered')
+    e.preventDefault()
+    try {
+      const { data } = await axios.post(
+        `https://api.geniuz.club/landingpage/marketing/WhiteList`,
+
+        {
+          Headers: {
+            'Content-Type': 'application/json',
+            recaptchaTokenBypass: token,
+            // 'Access-Control-Allow-Origin': 'http://localhost:3000',
+          },
+          email,
+        }
+      )
+      console.log(data, 'data in api')
+      setEmail('')
+    } catch (error) {
+      // throw new Error('Something went wrong', { cause: error })
+      console.log(error.message)
+    }
+  }
+
   return (
-    <div className="d-flex justify-content-center flex-column">
-      <input
-        type="email"
-        name="email"
-        placeholder="Enter your email"
-        className="form-control"
-        onChange={(e) => setActionToChange(e.target.value)}
-        value={actionToChange}
-      />
-      <button
-        type="button"
-        style={{ margin: 'auto' }}
-        onClick={registerUser}
-        className="btn btn-warning my-4 w-25"
+    <>
+      <form
+        onSubmit={submitHandler}
+        className="d-flex justify-content-center flex-column"
       >
-        Submit
-      </button>
-    </div>
+        <input
+          type="email"
+          name="email"
+          placeholder="Enter your email"
+          className="form-control"
+          onChange={(e) => setEmail(e.target.value)}
+          value={email}
+        />
+        <button
+          style={{ margin: 'auto' }}
+          type="submit"
+          onClick={registerUser}
+          className="btn btn-warning my-4 w-25"
+        >
+          Submit
+        </button>
+      </form>
+    </>
   )
 }
 

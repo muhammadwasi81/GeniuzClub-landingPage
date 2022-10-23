@@ -26,18 +26,6 @@ const BetaVersion = () => {
       </div>
       <div className="container">
         <Recaptcha />
-        {/* <form onSubmit={submitHandler}>
-          <input
-            type="email"
-            name="email"
-            className="form-control"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <button type="submit" className="w-100">
-            Submit
-          </button>
-        </form> */}
       </div>
     </section>
   )
