@@ -1,5 +1,7 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import axios from 'axios'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 const SITE_KEY = '6LfkUIYiAAAAAI-6GH-AZrG-wOBXIIEiZT5TcTFn'
 
@@ -8,34 +10,11 @@ function Recaptcha() {
   const [email, setEmail] = useState('')
   const [response, setResponse] = useState(null)
 
-  useEffect(() => {
-    const loadScriptByURL = (id, url, callback) => {
-      const isScriptExist = document.getElementById(id)
-
-      if (!isScriptExist) {
-        var script = document.createElement('script')
-        script.type = 'text/javascript'
-        script.src = url
-        script.id = id
-        script.onload = function () {
-          if (callback) callback()
-        }
-        document.body.appendChild(script)
-      }
-      if (isScriptExist && callback) callback()
-    }
-
-    loadScriptByURL(
-      'recaptcha-key',
-      `https://www.google.com/recaptcha/api.js?render=${SITE_KEY}`,
-      function () {
-        console.log('Script loaded!')
-      }
-    )
-  }, [])
-
   const handleOnClick = (e) => {
     e.preventDefault()
+    if (!email) {
+      return toast.error('Please enter your email')
+    }
     setLoading(true)
     window.grecaptcha.ready(() => {
       window.grecaptcha
@@ -43,7 +22,6 @@ function Recaptcha() {
           action: 'submit',
         })
         .then((token) => {
-          console.log(token, 'token')
           handleSubmit(token)
         })
     })
@@ -66,18 +44,27 @@ function Recaptcha() {
           },
         }
       )
-      setResponse(response)
-      setLoading(false)
-      setEmail('')
-      console.log(response.data, 'response')
+      if (response.status === 201 || response.status === 200) {
+        toast.success('Email Send Successfully', {
+          position: 'top-right',
+          autoClose: 5000,
+        })
+        setLoading(false)
+        setResponse(response)
+        setEmail('')
+      }
     } catch (error) {
+      toast.error('Email Already Exists', {
+        position: 'top-right',
+        autoClose: 5000,
+      })
       setLoading(false)
-      console.log(error, 'error')
-      throw new Error('Something went wrong', { cause: error })
+      throw new Error('Email Already Exists', { cause: error })
     }
   }
   return (
     <>
+      <ToastContainer />
       <div className="d-flex justify-content-center flex-column">
         <input
           value={email}

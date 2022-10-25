@@ -44,3 +44,7 @@ body {
   background: $primary-yellow;
   border-radius: 10px;
 }
+// Recaptcha
+.rc-anchor-invisible {
+  display: none !important;
+}
